@@ -1,0 +1,7 @@
+[template]
+src="rancher-inventory.tmpl"
+dest="/usr/local/share/kolla/ansible/inventory/rancher-inventory"
+reload_cmd = "touch /usr/local/share/kolla/ansible/kolla-refresh"
+keys= [
+   "/self"
+]

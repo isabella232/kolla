@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cd $(dirname $0)/..
+
+apt-get update && apt-get install -y vim openssh-server
+pip install -U ansible==1.9.6
+pip install .
+
+curl -O https://storage.googleapis.com/kubernetes-release/release/v1.2.3/bin/linux/amd64/kubectl && \
+    mv kubectl /usr/bin/kubectl && \
+    chmod +x /usr/bin/kubectl 
+
+curl -s -L https://get.docker.com/builds/Linux/x86_64/docker-1.10.3 > /usr/bin/docker; chmod +x /usr/bin/docker
+pip install -U python-openstackclient python-neutronclient
