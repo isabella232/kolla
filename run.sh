@@ -69,7 +69,7 @@ configure_passwords()
         cp /usr/local/share/kolla/etc_examples/kolla/passwords.yml /host/etc/kolla/
         kolla-genpwd
         if [ -n "${OPENSTACK_ADMIN_PASSWORD}" ]; then
-            sed "s/\(keystone_admin_password:\) \([a-zA-Z0-9].*\)/\1 ${OPENSTACK_ADMIN_PASSWORD}/" ./passwords.yml
+            sed -i "s/\(keystone_admin_password:\) \([a-zA-Z0-9].*\)/\1 ${OPENSTACK_ADMIN_PASSWORD}/" /host/etc/kolla/passwords.yml
         fi
     fi
 }
